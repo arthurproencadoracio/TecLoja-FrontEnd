@@ -1,0 +1,34 @@
+name: CI/CD Frontend - Vue 3 SPA
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Código
+      uses: actions/checkout@v3
+
+    - name: Configurar Node (v18)
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+        cache: 'npm'
+
+    - name: Instalar Dependências e Compilar
+      run: |
+        npm ci
+        npm run build
+
+    - name: Instalar Netlify CLI
+      run: npm install -g netlify-cli
+
+    - name: Deploy Produção para Netlify CDN
+      env:
+        NETLIFY_AUTH_TOKEN: $
+        NETLIFY_SITE_ID: $
+      run: |
+        netlify deploy --dir=dist --prod --message="Deploy Automático Vue 3 - Commit $GITHUB_SHA"
