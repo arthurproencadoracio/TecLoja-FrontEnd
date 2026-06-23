@@ -49,7 +49,7 @@
 import { ref, computed, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import api from '../../services/api';
-import { Produto } from '../../models';
+import type { Produto } from '../../models';
 
 const router = useRouter();
 

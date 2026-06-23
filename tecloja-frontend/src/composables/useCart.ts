@@ -1,6 +1,6 @@
 import { ref, computed } from 'vue';
 import api from '../services/api';
-import { CartItem, Produto } from '../models';
+import type { CartItem, Produto } from '../models';
 import { useAuth } from './useAuth';
 
 // Estado global do carrinho

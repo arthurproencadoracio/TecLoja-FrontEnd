@@ -1,6 +1,6 @@
 import { ref, computed } from 'vue';
 import axios from 'axios';
-import { UsuarioLogado } from '../models';
+import type { UsuarioLogado } from '../models';
 
 const API_URL = 'https://tecloja-api.render.com/api/auth';
 
@@ -20,7 +20,7 @@ export function useAuth() {
   const isAuthenticated = computed(() => !!usuario.value);
   const isAdmin = computed(() => usuario.value?.papel === 'ROLE_ADMIN');
 
-  const login = async (username: string, password: str) => {
+  const login = async (username: string, password: string) => {
     try {
       const response = await axios.post(`${API_URL}/login`, { username, password });
       const dados: UsuarioLogado = response.data;

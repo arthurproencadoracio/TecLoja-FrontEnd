@@ -27,6 +27,6 @@ export interface PedidoForm {
 
 export interface UsuarioLogado {
   token: string;
-  username: str;
+  username: string;
   papel: string;
 }

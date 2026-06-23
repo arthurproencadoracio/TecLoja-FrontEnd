@@ -52,7 +52,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import api from '../services/api';
-import { Produto } from '../models';
+import type { Produto } from '../models';
 import { useCart } from '../composables/useCart';
 import { useAuth } from '../composables/useAuth';
 
